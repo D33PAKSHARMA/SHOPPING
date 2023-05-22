@@ -6,11 +6,12 @@ import {
   userReset,
 } from "../controller/userController.js";
 import { isAdmin, requiresign } from "../middleware/authMiddleware.js";
+import singleupload from "../middleware/multer.js";
 
 const router = express.Router();
 
 // register user || Post
-router.post("/register", userRegistration);
+router.post("/register", singleupload, userRegistration);
 
 // user login || post
 router.post("/login", userLogin);

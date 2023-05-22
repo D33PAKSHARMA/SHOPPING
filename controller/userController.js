@@ -1,6 +1,7 @@
 import userModel from "../models/userModel.js";
 import bcrypt from "bcryptjs";
 import Jwt from "jsonwebtoken";
+import cloudinary from "../middleware/cloudinary.js";
 
 // ................... user registration || post......................
 
@@ -23,9 +24,13 @@ export const userRegistration = async (req, res) => {
     if (!answer) {
       return res.send({ message: "Answer is required" });
     }
+
+    const file = await cloudinary.v2.uploader.upload(req.file.path);
+
     const user = await userModel.findOne({ email });
-    if (user)
+    if (user) {
       return res.send({ success: false, message: "user already exist" });
+    }
 
     const salt = await bcrypt.genSalt(10);
     const hashpass = await bcrypt.hash(password, salt);
@@ -36,6 +41,10 @@ export const userRegistration = async (req, res) => {
       password: hashpass,
       phone,
       answer,
+      profile: {
+        url: file.secure_url,
+        public_id: file.public_id,
+      },
     }).save();
 
     res.send({ success: true, message: "Register sucessfully", new_user });
