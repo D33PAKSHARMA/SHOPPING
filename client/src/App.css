@@ -1,0 +1,63 @@
+.navbar {
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  font-size: 17px;
+  line-height: 26px;
+  box-shadow: 0 8px 6px -6px;
+  border-bottom: solid gray !important;
+}
+
+.active {
+  border-bottom: 2px solid black;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-family: "Playfair Display";
+}
+
+.footer {
+  color: white;
+  padding: 10px;
+  background: linear-gradient(to right, #434343, #000000);
+}
+
+.footer a {
+  text-decoration: none;
+  padding: 10px;
+  color: white;
+}
+.footer a:hover {
+  color: gray;
+}
+
+.pnf {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 80vh;
+}
+
+.register {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 70vh;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.form button {
+  width: 100%;
+}
+
+.form input {
+  width: 250px;
+}
