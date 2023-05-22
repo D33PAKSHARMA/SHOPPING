@@ -1,5 +1,5 @@
 # SHOPPING_CART
 
-change env file according to your information 
-To run this project: npm run dev
+1.change env file according to your information 
+2.To run this project: npm run dev
 
